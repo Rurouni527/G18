@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <meta name="keywords" content="Wear sales"/>
+        <title>Sportclassic</title>
+        <link rel="stylesheet" href="css/SC-MP.css"/>
+        <link rel="icon" href="images/Logo.png"/>
+    </head>
+    <body>
+        <div class="nav">
+            <section class="header">
+                <div class="logo">
+                    <img src="images//Logo.png"></img>
+                </div>
+                <div class="menu">
+                    <button>Ventas</button>
+                    <button>Productos</button>
+                    <button>Usuarios</button>
+                </div>
+            </section>
+            <section class="Data">
+                <div class="ScreenName"><p>Maestro de productos</p></div>
+                <div class="EditVarProd">
+                    <div class="Fields">
+                        <div class="IDproducto">
+                            <label for="IDproducto">ID producto</label>
+                            <input type="text" id="IDproducto" name="IDproducto" placeholder="ID producto"></input>
+                        </div>
+                        <div class="Descproducto">
+                            <label for="Descproducto">Descripción del producto</label>
+                            <input type="text" id="Descproducto" name="Descproducto" placeholder="Descripción del producto"></input>
+                        </div>
+                        <div class="Preciounitario">
+                            <label for="Preciounitario">Precio unitario</label>
+                            <input type="number" id="Preciounitario" name="Preciounitario" placeholder="Precio unitario"></input>
+                        </div>
+                        <div class="Estado">
+                            <label for="Estado">Estado</label>
+                            <select name="Estado" id="Estado">
+                                <option value="nodisponible">No disponible</option>
+                                <option value="disponible">Disponible</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="ImgProd">
+                        <div class="LoadImg">
+                            <button>Cargar imagen</button>
+                        </div>    
+                        <div class="DisplImag">
+                            <img src="images//Camisa.jpg" class="imagprod"></img>
+                        </div>    
+                    </div>
+                </div>    
+                <div class="CancelGrabar">
+                    <button>Cancelar</button>
+                    <button>Grabar</button>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>
