@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <meta name="keywords" content="Wear sales"/>
+        <title>Sportclassic</title>
+        <link rel="stylesheet" href="css/SC-MP.css"/>
+        <link rel="icon" href="images/Logo.png"/>
+    </head>
+    <body>
+        <div class="nav">
+            <section class="header">
+                <div class="logo">
+                    <img src="images//LOGO.png"></img>
+                </div>
+                <div class="menu">
+                    <button>Ventas</button>
+                    <button>Productos</button>
+                    <button>Usuarios</button>
+                </div>
+            </section>
+            <section class="Data">
+                <div class="ScreenName"><p>Maestro de productos</p></div>
+                <div class="AddLookProd">
+                    <div id="AddProd">
+                        <button>Agregar un nuevo producto</button>
+                    </div>
+                    <div class="LookProd">
+                        <div id="SearchOpt">
+                            <p>Opciones de búsqueda:</p>
+                            <div id="SearchIdProd">
+                                <input type="radio" id="IdProd" name="SearchProd" value="IdProd" checked>
+                                <label for="IdProd">Identificador del producto</label>
+                            </div>
+                            <div id="SearchDescProd">
+                                <input type="radio" id="DescProd" name="SearchProd" value="DescProd">
+                                <label for="DescProd">Descripción del producto</label>
+                            </div>
+                        </div>
+                        <div class="TextToSearch">
+                            <label for="text"></label>
+                            <input type="text" id="search-text" name="text" placeholder="Producto a buscar"></input>
+                            <div class="lupa">
+                                <img src="images//lupa.png"></img>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+                <table>
+                    <tr>
+                      <th>ID Producto</th>
+                      <th>Descripción del producto</th>
+                      <th>Valor unitario</th>
+                      <th>Estado</th>
+                    </tr>
+                    <tr><td>G18-1</td><td>Product A</td><td>80.000</td><td>Disponible</td></tr>
+                    <tr><td>G18-2</td><td>Product B</td><td>120.000</td><td>Disponible</td></tr>
+                    <tr><td>G18-3</td><td>Product C</td><td>75.000</td><td>Disponible</td></tr>
+                    <tr><td>G18-4</td><td>Product D</td><td>50.000</td><td>No disponible</td></tr>
+                </table>
+                <div class="EditarUnProd">
+                    <button>Editar</button>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>
