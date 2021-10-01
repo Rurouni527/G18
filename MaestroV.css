@@ -1,0 +1,126 @@
+body{
+    background-color:rgba(231,229,230,255);
+    font-family: Arial;
+}
+
+.nav {
+    background-color:rgba(217,217,217,255);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2rem 0;
+}
+
+.logo img {
+    max-height: 70px; 
+    
+}
+
+.boton_personalizado1{
+    position: relative;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    left: 60px;  
+    margin: 0 5rem;
+    cursor: pointer;
+    background-color: rgba(231,229,230,255);
+    padding: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;    
+}
+.boton_personalizado2{
+    position: relative;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    left: 60px;  
+    margin: 0 5rem;
+    cursor: pointer;
+    background-color: rgba(217,217,217,255);
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+    
+    
+}
+.boton_personalizado3{
+    position: relative;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    left: 60px;  
+    margin: 0 5rem;
+    cursor: pointer;
+    background-color: rgba(217,217,217,255);
+    font-weight: 600;
+    font-size: 18px;  
+    text-decoration: none;
+    
+}
+.boton_personalizado1:visited{
+    color:blue;
+}
+.boton_personalizado2:visited{
+    color:blue;
+}
+.boton_personalizado3:visited{
+    color:blue;
+}
+
+.boton_personalizado2:hover{    
+    background-color: rgba(231,229,230,255);
+    padding: 10px;
+}
+.boton_personalizado3:hover{    
+    background-color: rgba(231,229,230,255);
+    padding: 10px;
+}
+
+
+
+
+
+
+
+        
+        .boton {
+            float:right;           
+           
+            
+       }
+       .busqueda{
+           float: right
+       }
+       .lupa{
+            float: right;
+        } 
+        
+        #Tabla1{
+            margin: 30px auto;
+            widht: 600px;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            
+        }
+        th{
+            height: 40px;
+            background-color: rgb(116, 116, 235);
+            color: white;
+            
+        }
+        td, th{
+            border: solid 1px white;
+            padding: 3px;
+        }
+        tr:nth-child(even){
+            background-color:rgb(175, 180, 233);            
+        }
+        tr:hover{
+            background-color:rgb(116, 116, 235);
+            color: white;
+            }
