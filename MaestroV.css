@@ -1,19 +1,20 @@
 body{
-    background-color:rgba(231,229,230,255);
-    font-family: Arial;
+    font-family: Helvetica;
+    background-color: white;
 }
 
 .nav {
-    background-color:rgba(217,217,217,255);
+    background-color:gainsboro;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items:center;
     justify-content: space-between;
-    padding: 0.2rem 0;
+    height: 100px;
+    font-weight: bold;
 }
 
 .logo img {
-    max-height: 70px; 
+    max-height: 100px; 
     
 }
 
@@ -79,6 +80,13 @@ body{
     padding: 10px;
 }
 
+
+
+
+
+
+
+        
         .boton {
             float:right;           
            
@@ -102,7 +110,7 @@ body{
         }
         th{
             height: 40px;
-            background-color: rgb(116, 116, 235);
+            background-color: #3d7ba8;
             color: white;
             
         }
@@ -111,9 +119,42 @@ body{
             padding: 3px;
         }
         tr:nth-child(even){
-            background-color:rgb(175, 180, 233);            
+            background-color:#DDDBFF;            
         }
         tr:hover{
-            background-color:rgb(116, 116, 235);
+            background-color:#3d7ba8;
             color: white;
             }
+            
+            
+  .menu button {
+    background-color: blue;
+    color: white;
+    position: relative;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    left: 70px;
+    margin: 0 5rem;
+}
+
+button{
+    background-color:blue;
+    border: none;
+    height: 30px;
+    font-weight: bold;
+    color:white;
+}
+
+button:hover {
+    border: 2px solid;
+}
+
+.ScreenName {
+    background-color: rgb(208, 209, 206);
+    height:40px;
+    font-size: 15px;
+    text-align: center;
+    padding: 3px;
+    font-weight: bold;
+}
