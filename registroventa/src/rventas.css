@@ -1,0 +1,123 @@
+html {
+    font-family: 'Helvetica';
+    background-color: white;
+}
+
+.nav {
+    background-color:gainsboro;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2rem 0;
+}
+
+
+.logo img {
+    max-height: 100px; 
+    
+}
+
+.Botones Button {
+    margin: 0 5rem;
+    cursor: pointer;  
+}
+
+.Botones Button {
+    position: relative;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    left: 70px;
+}
+
+.Botones button{
+    background-color:blue;
+    color: white;
+    position: relative;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    left: 70px;
+    margin: 0 5rem;
+    
+}
+
+.Botones Button:hover {
+    text-decoration: underline;
+}
+
+.ScreenName {
+    background-color: rgb(208, 209, 206);
+    height:40px;
+    font-size: 15px;
+    text-align: center;
+    padding: 3px;
+    font-weight: bold;
+}
+
+.total {
+    position: relative;
+    top: 250px;
+    bottom: 0;
+    right: 0;
+    left: 0px;
+    
+}
+
+
+.total  {
+   border: 1px solid #4682B4;
+   float: right;
+   width: 400px;
+   height: 170px;
+   background-color:gainsboro
+   
+}
+
+.formulario {
+    align-items: center;
+    padding: 30px;
+    color:#4682B4;
+}
+
+.form__label, .form__input {
+    
+    display: flex;
+
+}
+
+.form__label {
+    width: 30%;
+    
+}
+
+.container--flex {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+
+.botones2 Button {
+    margin: 0 2rem;
+    cursor: pointer;  
+}
+
+.botones2 Button{
+    position: relative;
+    top: 0px;
+    bottom: 0;
+    right: 0;
+    left: 0px;
+}
+
+.botones2 Button {
+   float:right;  
+   color:blue
+   
+}
+
+.botones2 Button{
+    background-color:cornflowerblue
+}
