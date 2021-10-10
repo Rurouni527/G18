@@ -3,7 +3,7 @@ const Header = () => {
         <div >
             <class class="nav">
                 <div class="logo">
-                    <img src="LOGO.jpg" alt=""></img>
+                    <img src="LOGO.png" alt=""></img>
                 </div>
                 <div class="Botones">
                     <button>Ventas</button>

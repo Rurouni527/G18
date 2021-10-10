@@ -18,8 +18,8 @@ const Total = () => {
                 </div>
             </form>
         <div class="botones2">
-            <button>Cancelar</button> 
-            <button>Guardar</button> 
+        <a href="https://www.youtube.com/"><button>Cancelar </button></a>  
+        <a href="https://github.com/"><button>Guardar </button></a> 
         </div>
         </div>
     )
