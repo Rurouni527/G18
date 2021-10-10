@@ -18,8 +18,8 @@ const Total = () => {
                 </div>
             </form>
         <div class="botones2">
-        <a href="https://www.youtube.com/"><button>Cancelar </button></a>  
-        <a href="https://github.com/"><button>Guardar </button></a> 
+        <a href="https://github.com/Rurouni527/G18/blob/feature/JuanD/FEReact/src/components/App/App.js"><button>Cancelar </button></a>  
+        <a href="https://github.com/Rurouni527/G18/blob/feature/JuanD/FEReact/src/components/App/App.js"><button>Guardar </button></a> 
         </div>
         </div>
     )
