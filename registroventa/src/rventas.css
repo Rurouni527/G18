@@ -14,8 +14,7 @@ html {
 
 
 .logo img {
-    max-height: 100px; 
-    
+    max-height: 80px    
 }
 
 .Botones Button {
@@ -58,7 +57,7 @@ html {
 
 .total {
     position: relative;
-    top: 250px;
+    top: 230px;
     bottom: 0;
     right: 0;
     left: 0px;
@@ -106,9 +105,9 @@ html {
 
 .botones2 Button{
     position: relative;
-    top: 0px;
-    bottom: 0;
-    right: 0;
+    top: px;
+    bottom: 0px;
+    right: 0px;
     left: 0px;
 }
 

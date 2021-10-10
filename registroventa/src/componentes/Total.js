@@ -17,10 +17,10 @@ const Total = () => {
                     <input type ="number" class ="form__input"></input>
                 </div>
             </form>
-            <div class="botones2">
-                <button>Cancelar</button> 
-                <button>Guardar</button> 
-            </div>
+        <div class="botones2">
+            <button>Cancelar</button> 
+            <button>Guardar</button> 
+        </div>
         </div>
     )
 }

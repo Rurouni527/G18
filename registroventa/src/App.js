@@ -1,7 +1,7 @@
 import './rventas.css';
-import Header from "D:/Escritorio/MinTic/Programación/CICLO III/Scrum/Sprint3/registroventa/src/Header";
-import Menu from "D:/Escritorio/MinTic/Programación/CICLO III/Scrum/Sprint3/registroventa/src/Menu";
-import Total from "D:/Escritorio/MinTic/Programación/CICLO III/Scrum/Sprint3/registroventa/src/Total";
+import Header from "./componentes/Header";
+import Menu from "./componentes/Menu";
+import Total from "./componentes/Total";
 
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
       <Header/>
       <Menu/>
       <Total/>
+      
     </div>
   );
 }
