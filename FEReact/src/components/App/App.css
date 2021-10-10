@@ -1,0 +1,144 @@
+html {
+    font-family: 'Helvetica';
+    background-color: white;
+}
+
+.header {
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    font-weight: bold;
+}
+
+.logo img {
+    max-height: 100px;
+}
+
+.menu .button {
+    background-color: blue;
+    color: white;
+    position: relative;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    left: 70px;
+    margin: 0 5rem;
+}
+
+button {
+    background-color: blue;
+    border: none;
+    height: 30px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.button {
+    background-color: blue;
+    border: none;
+    height: 30px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+button:hover {
+    border: 2px solid;
+}
+
+.button:hover {
+    border: 2px solid;
+}
+
+.ScreenName {
+    background-color: rgb(208, 209, 206);
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    padding: 3px;
+    font-weight: bold;
+}
+
+.AddLookProd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    margin-right: 7rem;
+}
+
+.TextToSearch {
+    display: flex;
+    padding-top: 10px;
+}
+
+.lupa {
+    margin-left: 4px;
+}
+
+.lupa img {
+    max-height: 20px;
+}
+
+.Data Table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.Data Table {
+    width: 70%;
+    height: 200px;
+    margin-left: 200px;
+}
+
+.Data th {
+    height: 40px;
+    background-color: #3d7ba8;
+    color: white;
+}
+
+.Data tr:nth-child(even) {
+    background-color: #DDDBFF;
+}
+
+.EditVarProd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 130px;
+}
+
+.ImgProd {
+    display: grid;
+    padding-right: 120px;
+}
+
+.Descproducto {
+    padding-top: 50px;
+}
+
+.Preciounitario {
+    padding-top: 50px;
+}
+
+.Estado {
+    padding-top: 50px;
+}
+
+.CancelGrabar {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    column-gap: 100px;
+    margin-left: 150px;
+}
+
+.DisplImag {
+    padding-top: 20px;
+}
