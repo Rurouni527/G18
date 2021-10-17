@@ -1,0 +1,128 @@
+html {
+    font-family: 'Helvetica';
+    background-color: white;
+}
+
+.header {
+    background-color:rgb(235, 233, 233);
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+    height: 100px;
+    font-weight: bold;
+}
+
+.logo img {
+    max-height: 100px;
+}
+
+.lupa img {
+    max-height: 20px;
+}
+
+.ScreenName {
+    background-color: rgb(208, 209, 206);
+    height:40px;
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+    padding: 3px;
+    font-weight: bold;
+}
+
+.menu button {
+    background-color: rgb(116, 116, 235);
+    color: white;
+    position: relative;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    left: 70px;
+    margin: 0 5rem;
+}
+
+button{
+    background-color:rgb(235, 233, 233);
+    border: none;
+    height: 30px;
+    font-weight: bold;
+}
+
+button:hover {
+    border: 2px solid;
+}
+
+.AddLookProd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.TextToSearch {
+    display: flex;
+    padding-top=10px;
+}
+
+.lupa {
+    margin-left: 4px;
+}
+.Data Table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.Data Table{
+    width:70%;
+    height:200px;
+    margin-left: 200px;
+}
+
+.Data th{
+    height: 40px;
+    background-color: rgb(116, 116, 235);
+    color: white;
+}
+
+.Data tr:nth-child(even){
+    background-color:rgb(175, 180, 233);
+}
+
+.EditarUnProd {
+    margin-left: 1150px;
+}
+
+.EditVarProd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+}
+
+.ImgProd {
+    display: grid;
+    padding-right: 80px;
+}
+
+.Descproducto {
+    padding-top: 50px;
+}
+
+.Preciounitario {
+    padding-top: 50px;
+}
+
+.Estado {
+    padding-top: 50px;
+}
+
+.CancelGrabar {
+    padding-top: 8px;
+    margin-left: 150px;
+}
+
+
+.DisplImag {
+    padding-top: 20px;
+}
