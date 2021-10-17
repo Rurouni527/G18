@@ -42,17 +42,6 @@ function App() {
         <
         /Route> < /
         AppContextComponent > <
-        /> <
-        Route path = "/MenuOption"
-        component = { MenuOption }
-        /> <
-        Route path = "/ListProd"
-        component = { ListProd }
-        /> <
-        Route path = "/EditProd"
-        component = { EditProd }
-        /> < /
-        React.Fragment > <
         /BrowserRouter>
     );
 }
