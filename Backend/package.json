@@ -1,0 +1,20 @@
+{
+  "name": "app.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node registroVentas.js",
+    "watch": "nodemon registroVentas.js"
+  },
+  "author": "Luis y Juana",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.11"
+  }
+}
