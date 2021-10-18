@@ -1,12 +1,44 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom'
-import { httpPatch, httpPost } from './../utils/fetch';
+import { httpPatch, httpGet, httpPost } from './../utils/fetch';
 import './../App/App.css';
-//import { httpGet, httpPatch, httpPost } from './../utils/fetch';
+//import {  httpPatch, httpPost } from './../utils/fetch';
 
-const EditProd = () => {
+const EditProd = (props) => {
     const { pathname } = window.location;
     const isForEdit = !pathname.includes('create');
+
+    const params = useParams();
+
+    const [valorIdProd, cambiarValorIdProd] = useState('');
+    const [valorDescr, cambiarValorDescr] = useState('');
+    const [valorPrecio, cambiarValorPrecio] = useState('0.00');
+    const [valorAval, setAval] = useState(false);
+
+    useEffect(() => {
+        if (!params.id && isForEdit) {
+            window.location.href = '/create';
+            return;
+        }
+
+        const getProdData = async() => {
+            const prodData = await httpGet(`${process.env.REACT_APP_BACKEND_URL}/scprod/${params.id}`);
+            if (prodData) {
+                const prodFound = prodData[0];
+                if (prodFound) {
+                    cambiarValorIdProd(prodFound.idProducto);
+                    cambiarValorDescr(prodFound.descrProducto);
+                    cambiarValorPrecio(prodFound.valorUnitario);
+
+                    //idProducto
+                    //fileNamePhoto
+                    //available
+                }
+            }
+        };
+
+        getProdData();
+    }, [isForEdit, params.id]);
 
     if (isForEdit) {
         console.log('Es para edición');
@@ -63,6 +95,7 @@ const EditProd = () => {
         input type = "text"
         id = "IDproducto"
         name = "IDproducto"
+        value = { valorIdProd }
         placeholder = "ID producto" / >
         <
         /div> <
@@ -73,6 +106,7 @@ const EditProd = () => {
         input type = "text"
         id = "txtDescproducto"
         name = "txtDescproducto"
+        value = { valorDescr }
         placeholder = "Descripción del producto" / >
         <
         /div> <
@@ -83,6 +117,7 @@ const EditProd = () => {
         input type = "number"
         id = "Preciounitario"
         name = "Preciounitario"
+        value = { valorPrecio }
         placeholder = "0.00"
         min = "0"
         step = "0.01"
