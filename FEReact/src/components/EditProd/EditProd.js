@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom'
 import { httpPatch, httpGet, httpPost } from './../utils/fetch';
 import './../App/App.css';
-//import {  httpPatch, httpPost } from './../utils/fetch';
 
 const EditProd = (props) => {
     const { pathname } = window.location;
@@ -13,7 +12,7 @@ const EditProd = (props) => {
     const [valorIdProd, cambiarValorIdProd] = useState('');
     const [valorDescr, cambiarValorDescr] = useState('');
     const [valorPrecio, cambiarValorPrecio] = useState('0.00');
-    const [valorAval, setAval] = useState(false);
+    //const [valorAval, setAval] = useState(false);
 
     useEffect(() => {
         if (!params.id && isForEdit) {
@@ -40,41 +39,41 @@ const EditProd = (props) => {
         getProdData();
     }, [isForEdit, params.id]);
 
-    if (isForEdit) {
-        console.log('Es para edición');
-    } else {
-        console.log('Es para creación');
-    }
-
     const saveData = async() => {
-        const idProducto = document.getElementById("IDproducto");
-        const dataDescr = document.getElementById("txtDescproducto");
-        const dataPrecio = document.getElementById("Preciounitario");
-
-        if (dataPrecio.value <= 0) {
+        if (valorPrecio <= 0) {
             alert("El precio debe ser mayor a cero.");
             return;
         };
 
-        if (!dataDescr.value || dataDescr.length === 0) {
+        if (!valorDescr || valorDescr.length === 0) {
             alert("La descripción no puede quedar vacía.");
             return;
         };
 
         const prodObject = {
-            idProducto: idProducto.value,
-            descrProducto: dataDescr.value,
+            idProducto: valorIdProd,
+            descrProducto: valorDescr,
             fileNamePhoto: "archivofoto.png",
-            valorUnitario: dataPrecio.value,
+            valorUnitario: valorPrecio,
             available: true
         };
 
-        const createdProd = await httpPost(`${process.env.REACT_APP_BACKEND_URL}/scprod`, { body: JSON.stringify(prodObject), });
+        if (isForEdit) {
+            const updatedProd = await httpPatch(`${process.env.REACT_APP_BACKEND_URL}/scprod/${params.id}`, { body: JSON.stringify(prodObject), });
 
-        if (createdProd._id) {
-            alert("Producto fue guardado.");
+            if (updatedProd[0].idProducto) {
+                alert("Producto fue guardado.");
+            } else {
+                alert("Producto NO fue guardado.");
+            }
         } else {
-            alert("Producto NO fue guardado.");
+            const createdProd = await httpPost(`${process.env.REACT_APP_BACKEND_URL}/scprod`, { body: JSON.stringify(prodObject), });
+
+            if (createdProd._id) {
+                alert("Producto fue guardado.");
+            } else {
+                alert("Producto NO fue guardado.");
+            }
         }
     }
 
@@ -96,6 +95,9 @@ const EditProd = (props) => {
         id = "IDproducto"
         name = "IDproducto"
         value = { valorIdProd }
+        onChange = {
+            (event) => { cambiarValorIdProd(event.target.value) }
+        }
         placeholder = "ID producto" / >
         <
         /div> <
@@ -107,6 +109,9 @@ const EditProd = (props) => {
         id = "txtDescproducto"
         name = "txtDescproducto"
         value = { valorDescr }
+        onChange = {
+            (event) => { cambiarValorDescr(event.target.value) }
+        }
         placeholder = "Descripción del producto" / >
         <
         /div> <
@@ -118,6 +123,9 @@ const EditProd = (props) => {
         id = "Preciounitario"
         name = "Preciounitario"
         value = { valorPrecio }
+        onChange = {
+            (event) => { cambiarValorPrecio(event.target.value) }
+        }
         placeholder = "0.00"
         min = "0"
         step = "0.01"
