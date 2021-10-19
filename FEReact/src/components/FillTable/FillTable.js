@@ -1,21 +1,15 @@
+import './FillTable.css';
+
 const FillTable = (props) => {
 
     return ( <
-        div >
-        <
-        tbody >
-        <
         tr >
         <
-        td > < a href = { `/edit/${props.idProducto}` } > { `${props.idProducto}` } < /a></td >
-        <
-        td > { `${props.descrProducto}` } < /td> <
+        td > { `${props.idProducto}` } < /td > <
+        td > < a href = { `/edit/${props.idProducto}` } > { `${props.descrProducto}` } < /a> < /td > <
         td > { `${props.valorUnitario}` } < /td> <
         td > { `${props.available}` === 'true' ? 'Disponible' : 'No disponible' } < /td> < /
         tr >
-        <
-        /tbody> < /
-        div >
     );
 }
 

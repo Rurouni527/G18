@@ -70,10 +70,10 @@ const ListProd = (props) => {
         img src = "lupa.png"
         alt = "" / >
         <
-        /div> <
-        /div> <
-        /div> <
-        /div> <
+        /div> < /
+        div > <
+        /div> < /
+        div > <
         div >
         <
         table >
@@ -85,9 +85,10 @@ const ListProd = (props) => {
         th > ID Producto < /th>  <
         th > Descripción del producto < /th> <
         th > Valor unitario < /th> <
-        th > Estado < /th> <
-        /tr> <
-        /thead> {
+        th > Estado < /th> < /
+        tr > <
+        /thead> <
+        tbody > {
             (prods || []).map((item, index) => {
                 return <FillTable
                 idProducto = { item.idProducto }
@@ -97,8 +98,9 @@ const ListProd = (props) => {
                 /> ;
             })
         } <
-        /table> <
-        /div> <
+        /tbody> <
+        /table> < /
+        div > <
         /form>
     )
 }
