@@ -12,7 +12,7 @@ const EditProd = (props) => {
     const [valorIdProd, cambiarValorIdProd] = useState('');
     const [valorDescr, cambiarValorDescr] = useState('');
     const [valorPrecio, cambiarValorPrecio] = useState('0.00');
-    //const [valorAval, setAval] = useState(false);
+    const [valorAval, cambiarValorAval] = useState(false);
 
     useEffect(() => {
         if (!params.id && isForEdit) {
@@ -28,10 +28,8 @@ const EditProd = (props) => {
                     cambiarValorIdProd(prodFound.idProducto);
                     cambiarValorDescr(prodFound.descrProducto);
                     cambiarValorPrecio(prodFound.valorUnitario);
-
-                    //idProducto
+                    cambiarValorAval(prodFound.available);
                     //fileNamePhoto
-                    //available
                 }
             }
         };
@@ -55,7 +53,7 @@ const EditProd = (props) => {
             descrProducto: valorDescr,
             fileNamePhoto: "archivofoto.png",
             valorUnitario: valorPrecio,
-            available: true
+            available: valorAval === "nodisponible" ? false : true
         };
 
         if (isForEdit) {
@@ -137,10 +135,15 @@ const EditProd = (props) => {
         label
         for = "Estado" > Estado < /label> <
         select name = "Estado"
-        id = "Estado" >
+        id = "Estado"
+        onChange = {
+            (event) => { cambiarValorAval(event.target.value) }
+        } >
         <
-        option value = "nodisponible" > No disponible < /option> <
-        option value = "disponible" > Disponible < /option> < /
+        option value = "nodisponible"
+        selected = { `${valorAval}` === "true" ? "selected" : "" } > No disponible < /option> <
+        option value = "disponible"
+        selected = { `${valorAval}` === "true" ? "selected" : "" } > Disponible < /option> < /
         select >
         <
         /div> < /
