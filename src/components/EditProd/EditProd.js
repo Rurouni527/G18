@@ -1,33 +1,86 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom'
+import { httpPatch, httpGet, httpPost } from './../utils/fetch';
+import './../App/App.css';
 
-function saveData() {
-    const dataDescr = document.getElementById("txtDescproducto");
-    const dataPrecio = document.getElementById("Preciounitario");
-    const prods = [];
+const EditProd = (props) => {
+    const { pathname } = window.location;
+    const isForEdit = !pathname.includes('create');
 
-    console.log(dataDescr);
-    console.log(dataDescr.length);
+    const params = useParams();
 
-    if (dataPrecio.value <= 0) {
-        alert("El precio debe ser mayor a cero.");
-        return;
-    };
+    const [valorIdProd, cambiarValorIdProd] = useState('');
+    const [valorDescr, cambiarValorDescr] = useState('');
+    const [valorPrecio, cambiarValorPrecio] = useState('0.00');
+    const [valorAval, cambiarValorAval] = useState(false);
 
-    if (dataDescr && dataDescr.length === 0) {
-        alert("La descripción no puede quedar vacía.");
-        return;
-    };
+    useEffect(() => {
+        if (!params.id && isForEdit) {
+            window.location.href = '/create';
+            return;
+        }
 
-}
+        const getProdData = async() => {
+            const prodData = await httpGet(`${process.env.REACT_APP_BACKEND_URL}/scprod/${params.id}`);
+            if (prodData) {
+                const prodFound = prodData[0];
+                if (prodFound) {
+                    cambiarValorIdProd(prodFound.idProducto);
+                    cambiarValorDescr(prodFound.descrProducto);
+                    cambiarValorPrecio(prodFound.valorUnitario);
+                    cambiarValorAval(prodFound.available);
+                    //fileNamePhoto
+                }
+            }
+        };
 
-const EditProd = () => {
+        getProdData();
+    }, [isForEdit, params.id]);
+
+    const saveData = async() => {
+        if (valorPrecio <= 0) {
+            alert("El precio debe ser mayor a cero.");
+            return;
+        };
+
+        if (!valorDescr || valorDescr.length === 0) {
+            alert("La descripción no puede quedar vacía.");
+            return;
+        };
+
+        const prodObject = {
+            idProducto: valorIdProd,
+            descrProducto: valorDescr,
+            fileNamePhoto: "archivofoto.png",
+            valorUnitario: valorPrecio,
+            available: valorAval === "nodisponible" ? false : true
+        };
+
+        if (isForEdit) {
+            const updatedProd = await httpPatch(`${process.env.REACT_APP_BACKEND_URL}/scprod/${params.id}`, { body: JSON.stringify(prodObject), });
+
+            if (updatedProd[0].idProducto) {
+                alert("Producto fue guardado.");
+            } else {
+                alert("Producto NO fue guardado.");
+            }
+        } else {
+            const createdProd = await httpPost(`${process.env.REACT_APP_BACKEND_URL}/scprod`, { body: JSON.stringify(prodObject), });
+
+            if (createdProd._id) {
+                alert("Producto fue guardado.");
+            } else {
+                alert("Producto NO fue guardado.");
+            }
+        }
+    }
+
     return ( <
         form className = "Data" >
         <
         div className = "ScreenName" >
         <
-        p > Maestro de productos - Editar un producto < /p> < /
-        div > <
+        p > Maestro de productos - Editar un producto < /p> </div > <
         div className = "EditVarProd" >
         <
         div className = "Fields" >
@@ -39,6 +92,10 @@ const EditProd = () => {
         input type = "text"
         id = "IDproducto"
         name = "IDproducto"
+        value = { valorIdProd }
+        onChange = {
+            (event) => { cambiarValorIdProd(event.target.value) }
+        }
         placeholder = "ID producto" / >
         <
         /div> <
@@ -49,6 +106,10 @@ const EditProd = () => {
         input type = "text"
         id = "txtDescproducto"
         name = "txtDescproducto"
+        value = { valorDescr }
+        onChange = {
+            (event) => { cambiarValorDescr(event.target.value) }
+        }
         placeholder = "Descripción del producto" / >
         <
         /div> <
@@ -59,6 +120,10 @@ const EditProd = () => {
         input type = "number"
         id = "Preciounitario"
         name = "Preciounitario"
+        value = { valorPrecio }
+        onChange = {
+            (event) => { cambiarValorPrecio(event.target.value) }
+        }
         placeholder = "0.00"
         min = "0"
         step = "0.01"
@@ -70,10 +135,15 @@ const EditProd = () => {
         label
         for = "Estado" > Estado < /label> <
         select name = "Estado"
-        id = "Estado" >
+        id = "Estado"
+        onChange = {
+            (event) => { cambiarValorAval(event.target.value) }
+        } >
         <
-        option value = "nodisponible" > No disponible < /option> <
-        option value = "disponible" > Disponible < /option> < /
+        option value = "nodisponible"
+        selected = { `${valorAval}` === "true" ? "selected" : "" } > No disponible < /option> <
+        option value = "disponible"
+        selected = { `${valorAval}` === "true" ? "selected" : "" } > Disponible < /option> < /
         select >
         <
         /div> < /
@@ -98,9 +168,9 @@ const EditProd = () => {
         <
         button type = { 'button' }
         onClick = { saveData } >
-        Grabar < /button> <
+        Guardar < /button> <
         Link className = { 'button' }
-        to = { '/ListProd' } > Volver al Maestro de productos < /Link> < /
+        to = { '/list' } > Volver al Maestro de productos < /Link> < /
         div > <
         /form>
     )

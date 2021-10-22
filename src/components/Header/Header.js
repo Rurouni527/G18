@@ -14,7 +14,7 @@ const Header = () => {
         Link className = { 'button' }
         to = { '/' } > Ventas < /Link> <
         Link className = { 'button' }
-        to = { '/ListProd' } > Productos < /Link> <
+        to = { '/list' } > Productos < /Link> <
         Link className = { 'button' }
         to = { '/' } > Usuarios < /Link> < /
         div > <

@@ -1,6 +1,39 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
+import { httpGet } from './../utils/fetch';
+import FillTable from './../FillTable/FillTable';
 
-const ListProd = () => {
+const ListProd = (props) => {
+    const [prods, setProds] = useState([]);
+    const [prodsFltr, setProdsFltr] = useState([]);
+    const [filter, setFilter] = useState('');
+    const [filterByIdProd, cambiarTipoFiltro] = useState(false);
+
+    useMemo(() => {
+        if (!filter)
+            setProdsFltr(prods);
+
+        setProdsFltr(
+            prods.filter((curProdList) => {
+                if (filterByIdProd)
+                    return curProdList.idProducto.includes(filter);
+                else
+                    return curProdList.descrProducto.toLowerCase().includes(filter.toLowerCase());
+            })
+        );
+    }, [filter, prods, filterByIdProd]);
+
+
+    useEffect(() => {
+        const getProdsData = async() => {
+            const prodsData = await httpGet(`${process.env.REACT_APP_BACKEND_URL}/scprod`);
+            setProds(prodsData);
+            setProdsFltr(prodsData);
+        };
+
+        getProdsData();
+    }, []);
+
     return ( <
         form className = "Data" >
         <
@@ -13,7 +46,7 @@ const ListProd = () => {
         div id = "AddProd" >
         <
         Link className = { 'button' }
-        to = { '/EditProd' } > Agregar un nuevo producto < /Link> < /
+        to = { 'create' } > Agregar un nuevo producto < /Link> < /
         div > <
         div className = "LookProd" >
         <
@@ -26,18 +59,27 @@ const ListProd = () => {
         id = "IdProd"
         name = "SearchProd"
         value = "IdProd"
-        checked / >
-        <
+        onClick = {
+            () => {
+                cambiarTipoFiltro(true);
+            }
+        }
+        / > <
         label
-        for = "IdProd" > Identificador del producto < /label> < /
+        for = "IdProd" > ID Producto < /label> < /
         div > <
         div id = "SearchDescProd" >
         <
         input type = "radio"
         id = "DescProd"
         name = "SearchProd"
-        value = "DescProd" / >
-        <
+        value = "DescProd"
+        onClick = {
+            () => {
+                cambiarTipoFiltro(false);
+            }
+        }
+        / > <
         label
         for = "DescProd" > Descripción del producto < /label> < /
         div > <
@@ -49,6 +91,12 @@ const ListProd = () => {
         input type = "text"
         id = "search-text"
         name = "text"
+        value = { filter }
+        onChange = {
+            (e) => {
+                setFilter(e.target.value);
+            }
+        }
         placeholder = "Producto a buscar" / >
         <
         div className = "lupa" >
@@ -60,37 +108,34 @@ const ListProd = () => {
         div > <
         /div> < /
         div > <
+        div >
+        <
         table >
+        <
+        thead >
         <
         tr >
         <
-        th > ID Producto < /th> <
+        th > ID Producto < /th>  <
         th > Descripción del producto < /th> <
         th > Valor unitario < /th> <
         th > Estado < /th> < /
         tr > <
-        tr >
-        <
-        td > < Link className = { 'idCodeProd' }
-        to = { '/EditProd' } > G18 - 1 < /Link>< /td > < td > Product A < /td > < td > 80.000 < /td > < td > Disponible < /td > < /
-        tr > <
-        tr >
-        <
-        td > < Link className = { 'idCodeProd' }
-        to = { '/EditProd' } > G18 - 2 < /Link>< /td > < td > Product B < /td > < td > 120.000 < /td > < td > Disponible < /td > < /
-        tr > <
-        tr >
-        <
-        td > < Link className = { 'idCodeProd' }
-        to = { '/EditProd' } > G18 - 3 < /Link>< /td > < td > Product C < /td > < td > 75.000 < /td > < td > Disponible < /td > < /
-        tr > <
-        tr >
-        <
-        td > < Link className = { 'idCodeProd' }
-        to = { '/EditProd' } > G18 - 4 < /Link>< /td > < td > Product D < /td > < td > 50.000 < /td > < td > No disponible < /td > < /
-        tr > < /
+        /thead> <
+        tbody > {
+            (prodsFltr || []).map((item, index) => {
+                return <FillTable
+                idProducto = { item.idProducto }
+                descrProducto = { item.descrProducto }
+                valorUnitario = { item.valorUnitario }
+                available = { item.available }
+                /> ;
+            })
+        } < /tbody> < /
         table > <
-        /form>
+        /div> < /
+        form >
     )
 }
+
 export default ListProd;
