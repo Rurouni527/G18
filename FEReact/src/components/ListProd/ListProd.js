@@ -1,15 +1,41 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { httpGet } from './../utils/fetch';
+import { getToken } from './../utils/getToken';
 import FillTable from './../FillTable/FillTable';
 
 const ListProd = (props) => {
     const [prods, setProds] = useState([]);
+    const [prodsFltr, setProdsFltr] = useState([]);
+    const [filter, setFilter] = useState('');
+    const [filterByIdProd, cambiarTipoFiltro] = useState(false);
+
+    useMemo(() => {
+        if (!filter)
+            setProdsFltr(prods);
+
+        setProdsFltr(
+            prods.filter((curProdList) => {
+                if (filterByIdProd)
+                    return curProdList.idProducto.includes(filter);
+                else
+                    return curProdList.descrProducto.toLowerCase().includes(filter.toLowerCase());
+            })
+        );
+    }, [filter, prods, filterByIdProd]);
+
 
     useEffect(() => {
+        const token = getToken();
+        if (!token) {
+            window.location.href = '/'; // redirecciona a la página principal
+            return;
+        }
+
         const getProdsData = async() => {
             const prodsData = await httpGet(`${process.env.REACT_APP_BACKEND_URL}/scprod`);
             setProds(prodsData);
+            setProdsFltr(prodsData);
         };
 
         getProdsData();
@@ -40,18 +66,27 @@ const ListProd = (props) => {
         id = "IdProd"
         name = "SearchProd"
         value = "IdProd"
-        checked / >
-        <
+        onClick = {
+            () => {
+                cambiarTipoFiltro(true);
+            }
+        }
+        / > <
         label
-        for = "IdProd" > Identificador del producto < /label> < /
+        for = "IdProd" > ID Producto < /label> < /
         div > <
         div id = "SearchDescProd" >
         <
         input type = "radio"
         id = "DescProd"
         name = "SearchProd"
-        value = "DescProd" / >
-        <
+        value = "DescProd"
+        onClick = {
+            () => {
+                cambiarTipoFiltro(false);
+            }
+        }
+        / > <
         label
         for = "DescProd" > Descripción del producto < /label> < /
         div > <
@@ -63,6 +98,12 @@ const ListProd = (props) => {
         input type = "text"
         id = "search-text"
         name = "text"
+        value = { filter }
+        onChange = {
+            (e) => {
+                setFilter(e.target.value);
+            }
+        }
         placeholder = "Producto a buscar" / >
         <
         div className = "lupa" >
@@ -89,7 +130,7 @@ const ListProd = (props) => {
         tr > <
         /thead> <
         tbody > {
-            (prods || []).map((item, index) => {
+            (prodsFltr || []).map((item, index) => {
                 return <FillTable
                 idProducto = { item.idProducto }
                 descrProducto = { item.descrProducto }
@@ -97,11 +138,11 @@ const ListProd = (props) => {
                 available = { item.available }
                 /> ;
             })
-        } <
-        /tbody> <
-        /table> < /
-        div > <
-        /form>
+        } < /tbody> < /
+        table > <
+        /div> < /
+        form >
     )
 }
+
 export default ListProd;

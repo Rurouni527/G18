@@ -1,5 +1,3 @@
-import './FillTable.css';
-
 const FillTable = (props) => {
 
     return ( <

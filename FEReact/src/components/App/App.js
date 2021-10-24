@@ -6,8 +6,12 @@ import MenuOption from '../MenuOption/MenuOption';
 import ListProd from '../ListProd/ListProd';
 import EditProd from '../EditProd/EditProd';
 import React from 'react';
+import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
+import { getToken } from './../utils/getToken';
 
 function App() {
+    const token = getToken();
+
     return ( <
         BrowserRouter >
         <
@@ -15,20 +19,27 @@ function App() {
         <
         Route path = "/"
         component = { Header }
-        />  <
-        Route path = "/MenuOption"
-        component = { MenuOption }
         /> <
-        Route path = "/list"
-        component = { ListProd }
-        /> <
-        Route path = "/create"
-        component = { EditProd }
-        /> <
-        Route path = "/edit/:id?"
-        component = { EditProd }
-        />< /
-        React.Fragment > <
+        GoogleSignIn / > {
+            token ? ( <
+                >
+                <
+                Route path = "/MenuOption"
+                component = { MenuOption }
+                /> <
+                Route path = "/list"
+                component = { ListProd }
+                /> <
+                Route path = "/create"
+                component = { EditProd }
+                /> <
+                Route path = "/edit/:id?"
+                component = { EditProd }
+                /> <
+                />
+            ) : null
+        } <
+        /React.Fragment> <
         AppContextComponent >
         <
         Route path = { '/ListProd' } >
@@ -40,8 +51,8 @@ function App() {
         <
         EditProd / >
         <
-        /Route> < /
-        AppContextComponent > <
+        /Route>  <
+        /AppContextComponent> <
         /BrowserRouter>
     );
 }
