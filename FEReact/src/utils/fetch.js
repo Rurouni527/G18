@@ -1,5 +1,5 @@
 export const customFetch = async (url, options ) => {
-    const req = await fetch(url, potions);
+    const req = await fetch(url, options);
     return req.json();
 }
 
@@ -24,6 +24,6 @@ export const httpPatch = async (url, options) => {
 export const httpDelete = async (url, options) => {
     return customFetch(url, {
         method: 'DELETE',
-        ...opstions,
+        ...options,
     });
 };
