@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter, Route} from "react-router-dom"
-import './App.css';
+import './Rventas.css';
 import Header from '../Header/Header';
 import MenuOption from '../MenuOption/MenuOption';
 import VentasOk from '../VentasOk/VentasOk';
