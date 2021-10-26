@@ -1,0 +1,310 @@
+html {
+    font-family: 'Helvetica';
+    background-color: white;
+}
+
+.header {
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    font-weight: bold;
+}
+
+.logo img {
+    max-height: 100px;
+}
+
+.menu .button {
+    background-color: blue;
+    color: white;
+    position: relative;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    left: 70px;
+    margin: 0 5rem;
+}
+
+button {
+    background-color: blue;
+    border: none;
+    height: 30px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.button {
+    background-color: blue;
+    border: none;
+    height: 30px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+button:hover {
+    border: 2px solid;
+}
+
+.button:hover {
+    border: 2px solid;
+}
+
+.ScreenName {
+    background-color: rgb(208, 209, 206);
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    padding: 3px;
+    font-weight: bold;
+}
+
+/*--------------------------Maestro de Ventas-------------------*/
+
+.AddLookVenta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.TextToSearch {
+    display: flex;
+    padding-top: 10px;
+}
+
+.lupa {    
+    margin-left: 0cm; 
+    
+}
+
+.Data Table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.Data Table{
+    width:70%;
+    height:200px;
+    margin-left: 200px;
+}
+
+.Data th{
+    height: 40px;
+    background-color: #3d7ba8;
+    color: white;
+}
+
+
+.Data tr:nth-child(even){
+    background-color:#DDDBFF;
+}
+.Data tr:hover{
+    background-color:#3d7ba8;
+    color: white;
+    }
+.EditarVenta {
+    margin-left: 1150px;
+}
+
+
+/*//////////*/
+
+.nav {
+    background-color:gainsboro;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2rem 0;
+}
+
+
+
+.Botones Button:hover {
+    text-decoration: underline;
+}
+
+.ScreenName {
+    background-color: rgb(208, 209, 206);
+    height:40px;
+    font-size: 15px;
+    text-align: center;
+    padding: 3px;
+    font-weight: bold;
+}
+
+.total {
+    position: relative;
+    top: 50px;
+    bottom: 0;
+    right: 0;
+    left: 0px;
+    
+}
+
+
+.total  {
+   border: 1px solid #4682B4;
+   float: right;
+   width: 400px;
+   height: 170px;
+   background-color:gainsboro
+   
+}
+
+.formulario {
+    align-items: center;
+    padding: 30px;
+    color:#4682B4;
+}
+
+.form__label, .form__input {
+    
+    display: flex;
+
+}
+
+.form__label {
+    width: 30%;
+    
+}
+
+.container--flex {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+
+.botones2 Button {
+    margin: 0 2rem;
+    cursor: pointer;  
+}
+
+.botones2 Button{
+    position: relative;
+    top: px;
+    bottom: 30px;
+    right: 100px;
+    left: 0px;
+}
+
+.botones2 Button {
+   float:right;  
+   color:blue
+   
+}
+
+.botones2 Button{
+    background-color:cornflowerblue
+}
+
+
+.body{
+   
+}  
+
+form label{
+    width:72px;
+    font-weight:bold;
+    display:inline-block;
+}
+form input[type="text"]{
+    width:180px;
+    padding:3px 10px;
+    border:1px solid #4682B4;
+    border-radius:3px;
+    background-color:#f6f6f6;
+    margin:8px 0;
+    display:inline-block;
+}
+form select{
+    text-align-last: right;
+}
+p { vertical-align: center;}
+
+form input[type="button"]{
+    border: 1px solid #C0C0C0; /*anchura, estilo y color borde*/
+    padding: 10px; /*espacio alrededor texto*/
+    background-color: #C0C0C0; /*color botón*/
+    color: #4682B4; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    font-family: 'Arial'; /*tipografía texto*/
+    border-right-style: 50px; /*bordes redondos*/
+    float: right,;
+}
+.box{
+    float: right;
+}
+.icon{
+    position: absolute;
+    top: 50%;
+    margin-left: 17px;
+    margin-top: 17px;
+    z-index: 1;
+    color: #4f5b66;
+}
+/*--------------------------Maestro de Productos-------------------*/
+
+.AddLookProd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    margin-right: 7rem;
+}
+
+.TextToSearch {
+    display: flex;
+    padding-top: 10px;
+}
+
+.lupa {
+    margin-left: 4px;
+}
+
+.lupa img {
+    max-height: 20px;
+}
+
+.EditVarProd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 130px;
+}
+
+.ImgProd {
+    display: grid;
+    padding-right: 120px;
+}
+
+.Descproducto {
+    padding-top: 50px;
+}
+
+.Preciounitario {
+    padding-top: 50px;
+}
+
+.Estado {
+    padding-top: 50px;
+}
+
+.CancelGrabar {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    column-gap: 100px;
+    margin-left: 150px;
+}
+
+.DisplImag {
+    padding-top: 20px;
+}
+

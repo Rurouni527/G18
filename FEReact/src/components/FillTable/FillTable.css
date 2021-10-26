@@ -1,0 +1,15 @@
+.RowTable tbody,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.RowTable tbody {
+    width: 70%;
+    height: 40px;
+    margin-left: 200px;
+}
+
+.RowTable tr:nth-child(even) {
+    background-color: #DDDBFF;
+}
