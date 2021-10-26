@@ -19,9 +19,7 @@ app.use(express.json());
 app.use('/api/scprod', prodRouter);
 app.use('/api/users', usersRouter);
 
-app.get('*', (request, response) => {
-    return response.send('Not found!');
-});
+
 
 app.listen(port, function() {
     console.log(chalk.green(`El servidor está listo en el puerto: ${port}!`));

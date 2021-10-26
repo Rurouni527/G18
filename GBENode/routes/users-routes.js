@@ -1,12 +1,12 @@
 const express = require('express');
 const { validateUser } = require('../middlewares/validate-user');
 const {
-    createUser,
-    readUsers,
-    readUserData,
-    authUser,
-    authWithGoogle,
-} = require('./../controllers/user-controller');
+  createUser,
+  readUsers,
+  readUserData,
+  authUser,
+  authWithGoogle,
+} = require('./../controllers/users-controllers');
 
 // Router
 const router = express.Router();
