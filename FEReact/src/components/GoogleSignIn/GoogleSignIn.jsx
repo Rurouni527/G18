@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { httpPost } from '../../utils/fetch';
+import { httpPost } from './../utils/fetch';
 
 const getToken = () => {
   return window ? localStorage.getItem('token') : '';

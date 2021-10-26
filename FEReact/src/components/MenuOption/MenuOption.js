@@ -1,8 +1,9 @@
 const MenuOption = () => {
-    return (
-        <div class="ScreenName">
-            <p>Lista usuarios</p>
-        </div>
+    return ( <
+        div class = "ScreenName" >
+        <
+        p > Maestro de productos < /p> < /
+        div >
     )
 }
 
