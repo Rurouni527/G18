@@ -16,7 +16,7 @@ const Header = () => {
         Link className = { 'button' }
         to = { '/list' } > Productos < /Link> <
         Link className = { 'button' }
-        to = { '/' } > Usuarios < /Link> < /
+        to = { '/ListUsuario' } > Usuarios < /Link> < /
         div > <
         /section> 
     )

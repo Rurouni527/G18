@@ -2,9 +2,10 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import AppContextComponent from '../AppContext/AppContext';
 import './App.css';
 import Header from '../Header/Header';
-import MenuOption from '../MenuOption/MenuOption';
 import ListProd from '../ListProd/ListProd';
 import EditProd from '../EditProd/EditProd';
+import ListUsuario from '../ListUsuario/ListUsuario';
+import EditUsuario from '../EditUsuario/EditUsuario';
 import React from 'react';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 import { getToken } from './../utils/getToken';
@@ -24,19 +25,21 @@ function App() {
             token ? ( <
                 >
                 <
-                Route path = "/MenuOption"
-                component = { MenuOption }
+                Route path = "/ListUsuario"
+                component = { ListUsuario }
                 /> <
                 Route path = "/list"
                 component = { ListProd }
                 /> <
                 Route path = "/create"
                 component = { EditProd }
+                />  <
+                Route path = "/createUser"
+                component = { EditUsuario }
                 /> <
                 Route path = "/edit/:id?"
                 component = { EditProd }
-                /> <
-                />
+                /> < / >
             ) : null
         } <
         /React.Fragment> <
@@ -51,8 +54,8 @@ function App() {
         <
         EditProd / >
         <
-        /Route>  <
-        /AppContextComponent> <
+        /Route>  < /
+        AppContextComponent > <
         /BrowserRouter>
     );
 }
